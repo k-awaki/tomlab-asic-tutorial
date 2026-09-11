@@ -1,0 +1,6 @@
+xrun \
+ ./tb/MLP_layout_tb.v \
+ /opt/cadence/nangate45/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Verilog/NangateOpenCellLibrary.v \
+ ./innovus/freq400/outputs/MLP_enc.v \
+ -access +rw \
+ -clean -input ./script/wave_layout.tcl

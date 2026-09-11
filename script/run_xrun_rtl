@@ -1,0 +1,6 @@
+xrun \
+    ./tb/counter_rtl_tb.v \
+    ./model/counter.v \
+    -access +rw \
+    -clean \
+    -input script/wave_rtl.tcl

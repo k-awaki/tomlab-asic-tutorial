@@ -1,0 +1,26 @@
+# Cadence Xcelium (Simulation)
+xcelium.d/
+xrun.history
+xrun.key
+xrun.log
+*.diag
+.simvision/
+.simvision
+
+# Waveforms & Simulation Results
+sim/
+*.shm
+*.shm/
+
+# Cadence Genus (Synthesis)
+genus.log*
+genus.cmd*
+genus/
+fv/
+
+# User specific or temporary files
+*~
+*.swp
+err_msg.txt
+tree.txt
+tree.tdt
