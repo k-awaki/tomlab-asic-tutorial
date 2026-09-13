@@ -1,3 +1,3 @@
-xrun ./tb/MLP_core_fastinit_gate_tb.sv ./tb/sync_ram_fastinit.v ./genus/freq100/outputs_power/MLP_core_m.v -access +rw +sdf_verbose +toggle_count -clean \
+xrun ./tb/counter_gate_tb.v  ./genus/outputs_power/counter_m.v -access +rw +sdf_verbose +toggle_count -clean \
 -v /opt/cadence/nangate45/NangateOpenCellLibrary_PDKv1_3_v2010_12/Front_End/Verilog/NangateOpenCellLibrary.v \
 -input script/wave_gate.tcl

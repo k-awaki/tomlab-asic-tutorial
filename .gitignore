@@ -24,3 +24,12 @@ fv/
 err_msg.txt
 tree.txt
 tree.tdt
+
+# Cadence Innovus (Place & Route)
+innovus.log*
+innovus.cmd*
+innovus/
+timingReports/
+streamOut.map
+.rs_KAwaki.tstamp
+collectGenusLibrary.log

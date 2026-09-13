@@ -56,10 +56,8 @@ set_attribute cap_table_file $CAP /
 #set_attribute hdl_array_naming_style %s\[%d\] /  
 ##
 
-# set_attribute lp_insert_clock_gating true /
-# set_attribute lp_insert_discrete_clock_gating_logic true /
-set_attribute lp_insert_clock_gating $IS_ICG
-set_attribute lp_insert_discrete_clock_gating_logic $IS_ICG
+set_attribute lp_insert_clock_gating true
+set_attribute lp_insert_discrete_clock_gating_logic true
 
 ## Power root attributes
 #set_attribute lp_clock_gating_prefix <string> /
@@ -81,38 +79,6 @@ time_info Elaboration
 
 # First verify that all RTL modules were resolved.
 check_design -unresolved
-
-# ============================================================
-# PHASE 1: Protect sync_reset_mux hierarchy BEFORE synthesis
-# (Run immediately after elaborate)
-# ============================================================
-# set rst_mux_inst [find / -instance *u_current_layer_reset_mux*]
-set rst_mux_inst [find / -instance *reset_mux*]
-set rst_mux_subd [find / -subdesign *sync_reset_mux*]
-
-if {[llength $rst_mux_inst] == 0} {
-    puts "ERROR: reset_mux was not found after elaborate"
-    exit 1
-}
-
-if {[llength $rst_mux_subd] == 0} {
-    puts "ERROR: sync_reset_mux subdesign was not found after elaborate"
-    exit 1
-}
-
-puts "INFO: reset mux instance  = $rst_mux_inst"
-puts "INFO: reset mux subdesign = $rst_mux_subd"
-
-set_attribute ungroup_ok false $rst_mux_inst
-set_attribute ungroup_ok false $rst_mux_subd
-set_attribute boundary_opto false $rst_mux_subd
-set_attribute merge_combinational_hier_instance false $rst_mux_inst
-
-puts "INFO: Pre-synthesis hierarchy protection applied."
-puts "INFO: ungroup_ok(inst) = [get_attribute ungroup_ok [lindex $rst_mux_inst 0]]"
-puts "INFO: boundary_opto    = [get_attribute boundary_opto [lindex $rst_mux_subd 0]]"
-puts "INFO: merge_comb       = [get_attribute merge_combinational_hier_instance [lindex $rst_mux_inst 0]]"
-# ============================================================
 
 
 ####################################################################
@@ -195,19 +161,6 @@ syn_generic
 puts "Runtime & Memory after 'syn_generic'"
 time_info GENERIC
 
-# ============================================================
-# Check after syn_generic
-# ============================================================
-# set rst_mux_inst_generic [find / -instance *u_current_layer_reset_mux*]
-set rst_mux_inst_generic [find / -instance *reset_mux*]
-
-if {[llength $rst_mux_inst_generic] == 0} {
-    puts "ERROR: sync_reset_mux hierarchy disappeared during syn_generic"
-    exit 1
-}
-puts "INFO: sync_reset_mux survived syn_generic."
-puts "INFO: generic reset mux = $rst_mux_inst_generic"
-# ============================================================
 
 write_snapshot -outdir $_REPORTS_PATH -tag generic
 report datapath > $_REPORTS_PATH/generic/${DESIGN}_datapath.rpt
@@ -229,25 +182,6 @@ syn_map
 puts "Runtime & Memory after 'syn_map'"
 time_info MAPPED
 
-# ============================================================
-# PHASE 2: Freeze mapped sync_reset_mux BEFORE syn_opt
-# ============================================================
-# set rst_mux_inst_mapped [find / -instance *u_current_layer_reset_mux*]
-set rst_mux_inst_mapped [find / -instance *reset_mux*]
-
-if {[llength $rst_mux_inst_mapped] == 0} {
-    puts "ERROR: reset_mux disappeared during syn_map"
-    exit 1
-}
-
-puts "INFO: Applying preserve after syn_map."
-puts "INFO: mapped reset mux = $rst_mux_inst_mapped"
-
-set_attribute preserve true $rst_mux_inst_mapped
-
-# puts "INFO: preserve(inst) = [get_attribute preserve $rst_mux_inst_mapped]"
-puts "INFO: preserve(inst) = [get_attribute preserve [lindex $rst_mux_inst_mapped 0]]"
-# ============================================================
 
 write_snapshot -outdir $_REPORTS_PATH -tag map
 report_summary -outdir $_REPORTS_PATH
@@ -279,20 +213,6 @@ report_summary -outdir $_REPORTS_PATH
 puts "Runtime & Memory after 'syn_opt'"
 time_info OPT
 
-# ============================================================
-# Verify reset-mux hierarchy after syn_opt
-# ============================================================
-# set rst_mux_inst_final [find / -instance *u_current_layer_reset_mux*]
-set rst_mux_inst_final [find / -instance *reset_mux*]
-
-if {[llength $rst_mux_inst_final] == 0} {
-    puts "ERROR: reset_mux disappeared during syn_opt"
-    exit 1
-}
-
-puts "INFO: sync_reset_mux survived syn_opt."
-puts "INFO: final reset mux = $rst_mux_inst_final"
-# ============================================================
 
 foreach cg [find / -cost_group *] {
   report timing -cost_group [list $cg] > $_REPORTS_PATH/${DESIGN}_[vbasename $cg]_post_opt.rpt

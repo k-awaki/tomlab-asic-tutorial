@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module counter_rtl_tb;
+module counter_layout_tb;
 
     parameter WIDTH = 8;
     
@@ -8,11 +8,13 @@ module counter_rtl_tb;
     reg              reset;
     wire [WIDTH-1:0] count;
     
-    counter #(
-        .WIDTH(WIDTH)
-    ) uut (
+    counter
+    // #(
+    //    .WIDTH(WIDTH)
+    //) 
+    inst_counter (
         .clk(clk),
-        .rst(rst),
+        .reset(reset),
         .count(count)
     );
     
@@ -41,3 +43,4 @@ module counter_rtl_tb;
     end
 
 endmodule
+
