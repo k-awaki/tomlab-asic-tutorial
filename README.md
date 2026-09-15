@@ -181,10 +181,10 @@ tempus -files script/tempus.tcl
 ```
 
 終了後、`tempus/reports/` フォルダ内のレポートで以下の4点を確認してください。
-* [ ] **タイミング制約の確認 (Timing Constraint Check):** `check_timing.rpt` を確認し、クロック未定義や意図しない未制約パスなど、タイミング解析を不完全にする問題がないこと。
-* [ ] **解析カバレッジの確認 (Analysis Coverage Check):** `coverage.rpt` を確認し、Setup/Hold解析対象となるタイミングチェックに意図しない `Untested` がないこと。
-* [ ] **Setup Timingの確認:** `setup_1.rpt` を確認し、Setup違反（`Slack < 0`）がないこと。必要に応じて詳細レポート `setup_100.rpt.gz` も確認する。
-* [ ] **Hold Timingの確認:** `hold_1.rpt` を確認し、Hold違反（`Slack < 0`）がないこと。必要に応じて詳細レポート `hold_100.rpt.gz` も確認する。
+* [ ] **タイミング制約の確認 (Timing Constraint Check):** `tempus/reports/check_timing.rpt` を確認し、クロック未定義や意図しない未制約パスなど、タイミング解析を不完全にする問題がないこと。
+* [ ] **解析カバレッジの確認 (Analysis Coverage Check):** `tempus/reports/coverage.rpt` を確認し、Setup/Hold解析対象となるタイミングチェックに意図しない `Untested` がないこと。
+* [ ] **Setup Timingの確認:** `tempus/reports/setup_1.rpt` を確認し、Setup違反（`Slack < 0`）がないこと。必要に応じて詳細レポート `setup_100.rpt.gz` も確認する。
+* [ ] **Hold Timingの確認:** `tempus/reports/hold_1.rpt` を確認し、Hold違反（`Slack < 0`）がないこと。必要に応じて詳細レポート `hold_100.rpt.gz` も確認する。
 
 また、すべてのタイミング制約違反をまとめて確認する場合は、以下のレポートも確認できます。
 ```bash
