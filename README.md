@@ -42,32 +42,32 @@ export PATH=$XCELIUM_INST_DIR/tools.lnx86/bin:$PATH
 ```cmd
 $ ./tree.bash
 .
-tqq README.md
-tqq mmmc
-x   mqq enc_default.view
-tqq model
-x   mqq counter.v
-tqq script
-x   tqq genus.tcl
-x   tqq genus_config.tcl
-x   tqq innovus.tcl
-x   tqq innovus_config.tcl
-x   tqq run_xrun_gate
-x   tqq run_xrun_layout
-x   tqq run_xrun_rtl
-x   tqq tempus.tcl
-x   tqq tempus_config.tcl
-x   tqq wave_gate.tcl
-x   tqq wave_layout.tcl
-x   mqq wave_rtl.tcl
-tqq sdc
-x   mqq clk.sdc
-tqq sim
-tqq tb
-x   tqq counter_gate_tb.v
-x   tqq counter_layout_tb.v
-x   mqq counter_rtl_tb.v
-mqq tree.bash
+├── README.md
+├── mmmc
+│   └── enc_default.view
+├── model
+│   └── counter.v
+├── script
+│   ├── genus.tcl
+│   ├── genus_config.tcl
+│   ├── innovus.tcl
+│   ├── innovus_config.tcl
+│   ├── run_xrun_gate
+│   ├── run_xrun_layout
+│   ├── run_xrun_rtl
+│   ├── tempus.tcl
+│   ├── tempus_config.tcl
+│   ├── wave_gate.tcl
+│   ├── wave_layout.tcl
+│   └── wave_rtl.tcl
+├── sdc
+│   └── clk.sdc
+├── sim
+├── tb
+│   ├── counter_gate_tb.v
+│   ├── counter_layout_tb.v
+│   └── counter_rtl_tb.v
+└── tree.bash
 ```
 
 ## 1. RTLシミュレーションと波形確認 (RTL Simulation & Waveform Check)
