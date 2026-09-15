@@ -5,10 +5,10 @@
 0.1. チュートリアルをクローンする。
 ```cmd
 git clone https://github.com/k-awaki/tomlab-asic-tutorial.git
+cd tomlab-asic-tutorial
 ```
 
-Cadenceツールのパスを通すために、ホームディレクトリの `.bashrc` を設定する。
-
+0.2. Cadenceツールのパスを通すために、ホームディレクトリの `.bashrc` を設定する。
 ```bash
 cat ~/.bashrc
 ```
@@ -36,10 +36,15 @@ export PATH=$QUANTUS_INST_DIR/bin:$PATH
 export XCELIUM_INST_DIR=/opt/cadence/XCELIUM/XCELIUM2309
 export PATH=$XCELIUM_INST_DIR/tools.lnx86/bin:$PATH
 ```
-
-動作確認: `which genus` を実行し、パスが表示されればOK。
+| 動作確認: `which genus` を実行し、パスが表示されればOK。
 
 ## 1. RTLシミュレーションと波形確認 (RTL Simulation & Waveform Check)
+
+1.1. RTLシミュレーションの実行
+```cmd
+script/run_xrun_rtl
+```
+
 
 以下のコマンドで`SimVision`を起動します。
 
