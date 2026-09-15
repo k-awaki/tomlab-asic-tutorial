@@ -39,7 +39,7 @@ export PATH=$XCELIUM_INST_DIR/tools.lnx86/bin:$PATH
 | 動作確認: `which genus` を実行し、パスが表示されればOK。
 
 0.3 `tree.bash`を実行し、ディレクトリ構成を確認。
-```cmd
+```bash
 $ ./tree.bash
 .
 ├── README.md                    # このリポジトリの説明ファイル
