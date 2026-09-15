@@ -64,6 +64,7 @@ $ ./tree.bash
 ├── sdc                          # タイミング制約ファイル格納ディレクトリ
 │   └── clk.sdc                  # クロック等のSDCタイミング制約
 ├── sim                          # シミュレーション結果・波形データ格納用ディレクトリ
+├── streamOut.map                # InnovusのGDSII Stream Out用レイヤマップ
 ├── tb                           # Testbench格納ディレクトリ
 │   ├── counter_gate_tb.v        # 合成後ゲートレベル用Testbench
 │   ├── counter_layout_tb.v      # レイアウト後シミュレーション用Testbench
