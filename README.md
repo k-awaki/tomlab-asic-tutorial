@@ -169,3 +169,17 @@ innovus -files script/innovus.tcl
 2. `sim/waves_layout.shm` を選択して開く。
 3. 左側のDesign Browserから `counter_rtl_tb` 等を選択。
 4. 右側のSignals一覧から見たい信号を選び、右クリック → 「Send to Waveform Window」 をクリック。(アイコン：<img width="25" height="28" alt="Image" src="https://github.com/user-attachments/assets/639b4693-d5a0-4ddd-8d12-6fb3ef551944" />)
+
+## 3. 静的タイミング解析（STA）
+
+[ここ考えて]
+
+```bash
+tempus -files script/tempus.tcl
+```
+
+終了後、`tempus/reports` フォルダ内のレポートで以下の#点に違反がないか確認してください。
+- [ ] [ここ考えて]
+- [ ] [ここ考えて]
+- [ ] [ここ考えて]
+- [ ] [ここ考えて]
