@@ -4,7 +4,7 @@
 
 0.1. チュートリアルをクローンする。
 ```cmd
-git clone 
+git clone https://github.com/k-awaki/tomlab-asic-tutorial.git
 ```
 
 Cadenceツールのパスを通すために、ホームディレクトリの `.bashrc` を設定する。
