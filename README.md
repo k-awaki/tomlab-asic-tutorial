@@ -38,6 +38,38 @@ export PATH=$XCELIUM_INST_DIR/tools.lnx86/bin:$PATH
 ```
 | 動作確認: `which genus` を実行し、パスが表示されればOK。
 
+0.3 `tree.bash`を実行し、ディレクトリ構成を確認。
+```cmd
+$ ./tree.bash
+.
+tqq README.md
+tqq mmmc
+x   mqq enc_default.view
+tqq model
+x   mqq counter.v
+tqq script
+x   tqq genus.tcl
+x   tqq genus_config.tcl
+x   tqq innovus.tcl
+x   tqq innovus_config.tcl
+x   tqq run_xrun_gate
+x   tqq run_xrun_layout
+x   tqq run_xrun_rtl
+x   tqq tempus.tcl
+x   tqq tempus_config.tcl
+x   tqq wave_gate.tcl
+x   tqq wave_layout.tcl
+x   mqq wave_rtl.tcl
+tqq sdc
+x   mqq clk.sdc
+tqq sim
+tqq tb
+x   tqq counter_gate_tb.v
+x   tqq counter_layout_tb.v
+x   mqq counter_rtl_tb.v
+mqq tree.bash
+```
+
 ## 1. RTLシミュレーションと波形確認 (RTL Simulation & Waveform Check)
 
 1.1. RTLシミュレーションの実行
