@@ -170,16 +170,25 @@ innovus -files script/innovus.tcl
 3. 左側のDesign Browserから `counter_rtl_tb` 等を選択。
 4. 右側のSignals一覧から見たい信号を選び、右クリック → 「Send to Waveform Window」 をクリック。(アイコン：<img width="25" height="28" alt="Image" src="https://github.com/user-attachments/assets/639b4693-d5a0-4ddd-8d12-6fb3ef551944" />)
 
-## 3. 静的タイミング解析（STA）
+## 4. 静的タイミング解析 (Static Timing Analysis - Tempus)
 
-[ここ考えて]
+4.1. Cadence Tempusを使用して、配置配線後の回路に対して静的タイミング解析（STA）を実行します。
+
+Tempusでは、Innovusで生成されたpost-layoutネットリストとSPEF（配線の寄生抵抗・容量情報）を読み込み、クロックやタイミング制約を考慮してSetup/Holdタイミングを解析します。
 
 ```bash
 tempus -files script/tempus.tcl
 ```
 
-終了後、`tempus/reports` フォルダ内のレポートで以下の#点に違反がないか確認してください。
-- [ ] [ここ考えて]
-- [ ] [ここ考えて]
-- [ ] [ここ考えて]
-- [ ] [ここ考えて]
+終了後、`tempus/reports/` フォルダ内のレポートで以下の4点を確認してください。
+* [ ] **タイミング制約の確認 (Timing Constraint Check):** `check_timing.rpt` を確認し、クロック未定義や意図しない未制約パスなど、タイミング解析を不完全にする問題がないこと。
+* [ ] **解析カバレッジの確認 (Analysis Coverage Check):** `coverage.rpt` を確認し、Setup/Hold解析対象となるタイミングチェックに意図しない `Untested` がないこと。
+* [ ] **Setup Timingの確認:** `setup_1.rpt` を確認し、Setup違反（`Slack < 0`）がないこと。必要に応じて詳細レポート `setup_100.rpt.gz` も確認する。
+* [ ] **Hold Timingの確認:** `hold_1.rpt` を確認し、Hold違反（`Slack < 0`）がないこと。必要に応じて詳細レポート `hold_100.rpt.gz` も確認する。
+
+また、すべてのタイミング制約違反をまとめて確認する場合は、以下のレポートも確認できます。
+```bash
+tempus/reports/allviol.rpt
+```
+
+`allviol.rpt` に意図しないconstraint violationがなく、Setup/Holdの両方で負のSlackが存在しなければ、対象のタイミング条件に対してタイミングを満たしていると判断できます。
