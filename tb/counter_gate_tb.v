@@ -32,10 +32,10 @@ module counter_gate_tb;
         
         #200;
         
-        @(posedge clk);
+        @(negedge clk);
         reset = 1'b1;
         
-        @(posedge clk);
+        @(negedge clk);
         reset = 1'b0;
         
         #50;
