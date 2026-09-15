@@ -140,7 +140,7 @@ innovus -files script/innovus.tcl
 
 終了後、`innovus/reports/` フォルダ内のレポートで以下の3点に違反がないか確認してください。
 * [ ] ジオメトリ違反の確認 (DRC Check): `geomafterroute.rpt` を確認し、配線ルール違反がないこと (`Total Violations : 0`)。
-* [ ] 接続違反の確認 (LVS Check): `connafterroute.rpt` を確認し、ショートや未結線がないこと (`Total Violations : 0`)。
+* [ ] 接続違反の確認 (Connectivity Check): `connafterroute.rpt` を確認し、ショートや未結線がないこと (`Total Violations : 0`)。
 * [ ] タイミング違反の確認 (Timing Check): `timingReports/` 内のサマリ (`.summary.gz` 等) を確認し、セットアップ/ホールド時間のSlackがプラス（Positive）であること。
 
 3.2. Post-Layout Gate-Level Simulation
