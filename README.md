@@ -52,6 +52,7 @@ $ ./tree.bash
 │   ├── genus_config.tcl         # Genus用の設計・ライブラリ等の設定ファイル
 │   ├── innovus.tcl              # Cadence InnovusによるPlace & Route実行スクリプト
 │   ├── innovus_config.tcl       # Innovus用の設計・フロアプラン等の設定ファイル
+│   ├── reports.tcl              # Tempus用STAレポート生成スクリプト
 │   ├── run_xrun_gate            # 合成後ゲートレベルシミュレーション実行スクリプト
 │   ├── run_xrun_layout          # レイアウト後シミュレーション実行スクリプト
 │   ├── run_xrun_rtl             # RTLシミュレーション実行スクリプト
@@ -139,7 +140,7 @@ innovus -files script/innovus.tcl
 ```
 
 終了後、`innovus/reports/` フォルダ内のレポートで以下の3点に違反がないか確認してください。
-* [ ] ジオメトリ違反の確認 (DRC Check): `geomafterroute.rpt` を確認し、配線ルール違反がないこと (`Total Violations : 0`)。
+* [ ] ジオメトリ・配線違反の確認 (Innovus Geometry/DRC Check): `geomafterroute.rpt` を確認し、配線ルール違反がないこと (`Total Violations : 0`)。
 * [ ] 接続違反の確認 (Connectivity Check): `connafterroute.rpt` を確認し、ショートや未結線がないこと (`Total Violations : 0`)。
 * [ ] タイミング違反の確認 (Timing Check): `timingReports/` 内のサマリ (`.summary.gz` 等) を確認し、セットアップ/ホールド時間のSlackがプラス（Positive）であること。
 
