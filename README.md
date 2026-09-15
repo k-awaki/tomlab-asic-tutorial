@@ -42,32 +42,32 @@ export PATH=$XCELIUM_INST_DIR/tools.lnx86/bin:$PATH
 ```cmd
 $ ./tree.bash
 .
-├── README.md
-├── mmmc
-│   └── enc_default.view
-├── model
-│   └── counter.v
-├── script
-│   ├── genus.tcl
-│   ├── genus_config.tcl
-│   ├── innovus.tcl
-│   ├── innovus_config.tcl
-│   ├── run_xrun_gate
-│   ├── run_xrun_layout
-│   ├── run_xrun_rtl
-│   ├── tempus.tcl
-│   ├── tempus_config.tcl
-│   ├── wave_gate.tcl
-│   ├── wave_layout.tcl
-│   └── wave_rtl.tcl
-├── sdc
-│   └── clk.sdc
-├── sim
-├── tb
-│   ├── counter_gate_tb.v
-│   ├── counter_layout_tb.v
-│   └── counter_rtl_tb.v
-└── tree.bash
+├── README.md                    # このリポジトリの説明ファイル
+├── mmmc                         # MMMC (Multi-Mode Multi-Corner) 設定用ディレクトリ
+│   └── enc_default.view         # Innovus/Tempus向けのMMMC view設定ファイル
+├── model                        # RTL設計ファイル格納ディレクトリ
+│   └── counter.v                # カウンタ回路のRTL記述
+├── script                       # ASICフロー用スクリプト
+│   ├── genus.tcl                # Cadence Genusによる論理合成実行スクリプト
+│   ├── genus_config.tcl         # Genus用の設計・ライブラリ等の設定ファイル
+│   ├── innovus.tcl              # Cadence InnovusによるPlace & Route実行スクリプト
+│   ├── innovus_config.tcl       # Innovus用の設計・フロアプラン等の設定ファイル
+│   ├── run_xrun_gate            # 合成後ゲートレベルシミュレーション実行スクリプト
+│   ├── run_xrun_layout          # レイアウト後シミュレーション実行スクリプト
+│   ├── run_xrun_rtl             # RTLシミュレーション実行スクリプト
+│   ├── tempus.tcl               # Cadence TempusによるSTA実行スクリプト
+│   ├── tempus_config.tcl        # Tempus用のタイミング解析設定ファイル
+│   ├── wave_gate.tcl            # ゲートレベルシミュレーション用波形設定
+│   ├── wave_layout.tcl          # レイアウト後シミュレーション用波形設定
+│   └── wave_rtl.tcl             # RTLシミュレーション用波形設定
+├── sdc                          # タイミング制約ファイル格納ディレクトリ
+│   └── clk.sdc                  # クロック等のSDCタイミング制約
+├── sim                          # シミュレーション結果・波形データ格納用ディレクトリ
+├── tb                           # Testbench格納ディレクトリ
+│   ├── counter_gate_tb.v        # 合成後ゲートレベル用Testbench
+│   ├── counter_layout_tb.v      # レイアウト後シミュレーション用Testbench
+│   └── counter_rtl_tb.v         # RTLシミュレーション用Testbench
+└── tree.bash                    # ディレクトリ構造をtree形式で表示するスクリプト
 ```
 
 ## 1. RTLシミュレーションと波形確認 (RTL Simulation & Waveform Check)
