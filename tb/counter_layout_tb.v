@@ -24,6 +24,8 @@ module counter_layout_tb;
     end
     
     initial begin
+
+	$sdf_annotate("./innovus/outputs/counter.sdf", inst_counter, , ,"MAXIMUM");
         
         reset = 1'b1;
         
