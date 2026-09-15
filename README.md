@@ -56,7 +56,7 @@ simvision &
 
 ### 波形の表示手順 (Steps to view waveforms)
 
-1. SimVisionのメニューから 「File」→「Open Database...」 をクリック。
+1. SimVisionのメニューから 「File」→「Open Database...」 をクリック。（アイコン：<img width="30" height="25" alt="Image" src="https://github.com/user-attachments/assets/d521736f-7283-4964-a557-b95ecdc97440" />）
 2. `sim/waves_rtl.shm` を選択して開く。
 3. 左側のDesign Browserから `counter_tb` 等を選択。
 4. 右側のSignals一覧から見たい信号を選び、右クリック → 「Send to Waveform Window」 をクリック。
