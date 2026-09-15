@@ -1,4 +1,5 @@
 # ASIC Tutorial
+[English version](README_en.md)
 
 ## 0. 事前準備 (Environment Setup)
 
