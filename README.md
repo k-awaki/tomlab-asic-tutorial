@@ -117,6 +117,8 @@ genus -legacy_ui -files script/genus.tcl
 - [ ] ログに tb, model どちらも `errors: 0` を確認。
 - [ ] ログの最後に `... Done` を確認。
 
+| 今回の pre-layout gate-level simulationは genus netlist をシミュレーションしているが、 `$sdf_annotate` はしていないので、必要であれば、tbに追加してください。
+
 以下のコマンドで`SimVision`を起動します。
 
 ```bash
