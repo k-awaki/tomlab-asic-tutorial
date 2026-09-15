@@ -2,6 +2,11 @@
 
 ## 0. 事前準備 (Environment Setup)
 
+0.1. チュートリアルをクローンする。
+```cmd
+git clone 
+```
+
 Cadenceツールのパスを通すために、ホームディレクトリの `.bashrc` を設定する。
 
 ```bash
